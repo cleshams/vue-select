@@ -375,14 +375,14 @@
 
     <transition :name="transition">
       <ul ref="dropdownMenu" v-if="dropdownOpen" class="dropdown-menu" :style="{ 'max-height': maxHeight }" role="listbox" @mousedown="onMousedown" @mouseup="onMouseup">
-        <li role="option" v-for="(option, index) in filteredOptions" v-bind:key="index" :class="{ active: isOptionSelected(option), highlight: index === typeAheadPointer }" @mouseover="typeAheadPointer = index">
-          <a @mousedown.prevent.stop="select(option)">
+        <li role="option" v-for="(option, index) in filteredOptions" v-bind:key="index" :class="{ active: isOptionSelected(option), highlight: index === typeAheadPointer, disabled: !isOptionDisabled(option) }" @mouseover="!isOptionDisabled(option)?()=>{}:typeAheadPointer = index">
+          <a @mousedown.prevent.stop="select(option)" :class="{disabled: !isOptionDisabled(option)}">
           <slot name="option" v-bind="(typeof option === 'object')?option:{[label]: option}">
             {{ getOptionLabel(option) }}
           </slot>
           </a>
         </li>
-        <li v-if="!filteredOptions.length" class="no-options" @mousedown.stop="">
+        <li v-if="!filteredOptions.length" class="no-options" >
           <slot name="no-options">Sorry, no matching options.</slot>
         </li>
       </ul>
@@ -569,6 +569,34 @@
             return option[this.label]
           }
           return option;
+        }
+      },
+
+      /**
+       * Tells vue-select what key to use when describing whether
+       * an option is disabled.
+       * @type {String}
+       */
+      disabledkey: {
+        type: String,
+        default: 'isSampleTerm'
+      },
+
+      /**
+       * Callback to generate boolean value about whether an option
+       * is disabled. Disabled = false by default.
+       * @type {Boolean}
+       */
+      isOptionDisabled: {
+        type: Function,
+        default(option) {
+            
+          if (typeof option === 'object') {
+            if (option[this.disabledkey]) {
+                return option[this.disabledkey];
+            }
+          }
+          return false;
         }
       },
 
