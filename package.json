@@ -1,31 +1,37 @@
 {
-  "name": "vue-select",
-  "version": "2.6.4",
+  "_from": "vue-select@^2.6.3",
+  "_id": "vue-select@2.6.4",
+  "_inBundle": false,
+  "_integrity": "sha512-OZIzzGlYwro2QcgAmcn2c4LQDPrYIT3+iaf4WciKPIeFFjgzRti6FC5Qjr2XEPqd85wqtsifuYyxsyb/JoJ4CQ==",
+  "_location": "/vue-select",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "range",
+    "registry": true,
+    "raw": "vue-select@^2.6.3",
+    "name": "vue-select",
+    "escapedName": "vue-select",
+    "rawSpec": "^2.6.3",
+    "saveSpec": null,
+    "fetchSpec": "^2.6.3"
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/vue-select/-/vue-select-2.6.4.tgz",
+  "_shasum": "cb82ea3417a4b0f68101f53528ba1c0b04de5308",
+  "_spec": "vue-select@^2.6.3",
+  "_where": "/Users/steve/dev/mathsoftheday-org",
+  "author": {
+    "name": "Jeff Sagal",
+    "email": "sagalbot@gmail.com"
+  },
+  "bugs": {
+    "url": "https://github.com/sagalbot/vue-select/issues"
+  },
+  "bundleDependencies": false,
+  "deprecated": false,
   "description": "A native Vue.js component that provides similar functionality to Select2 without the overhead of jQuery.",
-  "author": "Jeff Sagal <sagalbot@gmail.com>",
-  "private": false,
-  "main": "dist/vue-select.js",
-  "license": "MIT",
-  "scripts": {
-    "start": "npm run dev",
-    "dev": "node build/dev-server.js",
-    "dev:homepage": "node build/dev-server.js --docs",
-    "dev:docs": "gitbook serve",
-    "build": "node build/build.js",
-    "build:homepage": "node build/build.js --homepage",
-    "build:docs": "yarn run build:homepage && node build/build-docs.js",
-    "deploy": "yarn run build:homepage && node build/build-docs.js && gh-pages -d site",
-    "lint": "eslint --ext .js,.vue src test/unit/specs",
-    "test": "karma start test/unit/karma.conf.js --single-run",
-    "test-watch": "karma start test/unit/karma.conf.js --single-run=false --auto-watch=true"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/sagalbot/vue-select.git"
-  },
-  "peerDependencies": {
-    "vue": "2.x"
-  },
   "devDependencies": {
     "babel-core": "^6.0.0",
     "babel-loader": "^6.0.0",
@@ -84,5 +90,31 @@
     "webpack-dev-middleware": "^1.4.0",
     "webpack-hot-middleware": "^2.6.0",
     "webpack-merge": "^0.13.0"
-  }
+  },
+  "homepage": "https://github.com/sagalbot/vue-select#readme",
+  "license": "MIT",
+  "main": "dist/vue-select.js",
+  "name": "vue-select",
+  "peerDependencies": {
+    "vue": "2.x"
+  },
+  "private": false,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sagalbot/vue-select.git"
+  },
+  "scripts": {
+    "build": "node build/build.js",
+    "build:docs": "yarn run build:homepage && node build/build-docs.js",
+    "build:homepage": "node build/build.js --homepage",
+    "deploy": "yarn run build:homepage && node build/build-docs.js && gh-pages -d site",
+    "dev": "node build/dev-server.js",
+    "dev:docs": "gitbook serve",
+    "dev:homepage": "node build/dev-server.js --docs",
+    "lint": "eslint --ext .js,.vue src test/unit/specs",
+    "start": "npm run dev",
+    "test": "karma start test/unit/karma.conf.js --single-run",
+    "test-watch": "karma start test/unit/karma.conf.js --single-run=false --auto-watch=true"
+  },
+  "version": "2.6.4"
 }

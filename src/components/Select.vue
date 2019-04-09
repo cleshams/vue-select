@@ -591,12 +591,20 @@
         type: Function,
         default(option) {
             
+          if(this.disabledkey == 'false')
+          {
+              return true;
+          }  
           if (typeof option === 'object') {
             if (option[this.disabledkey]) {
+                console.log(option.name +' = ' + option[this.disabledkey])
                 return option[this.disabledkey];
+            } else
+            {
+                return false;
             }
           }
-          return false;
+          return true;
         }
       },
 
